@@ -36,7 +36,7 @@ const goods = document.querySelector(".prek");
 item1.innerHTML += `<div class="pr"><p>Shopping Cart</p><span>3 items</span></div>
 <div class="prek"></div><a href="#"id="back"onclick="zero()"><img src="arrow.png" alt=""> Back to shop</a>`;
 let pq = [0, 0, 0];
-let totalPrice = 0;
+let totalPrice =0;
 function showList() {
   let html = "";
   pq = [0, 0, 0];
@@ -74,7 +74,7 @@ const d = [" ", 5, 8, 0];
 const item2 = document.querySelector(".cart2");
 
 item2.innerHTML += `<div class="forms"><h2>Summary</h2><hr> 
-<div class="sp1"><p>ITEMS3</p><p id="total">€${totalPrice}.00</p> </div>
+<div class="sp1"><p>ITEMS3</p><p id="total">€${totalPrice} .00</p> </div>
 <h3 class="ship">SHIPPING</h3><div class="input-group">
 <select class="form-select" id="inputGroupSelect04"
  aria-label="Example select with button addon" onchange="updateTotalPrice()">
@@ -141,6 +141,6 @@ function updateTotalPrice() {
 
 updateTotalPrice();
 function zero(){showList();
-  document.getElementById("total1").textContent = `€0.00`;
-  document.getElementById("total").textContent = `€0.00`;
+  document.getElementById("total1").textContent = `€0 .00`;
+  document.getElementById("total").textContent = `€0 .00`;
 }
