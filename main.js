@@ -140,7 +140,7 @@ function updateTotalPrice() {
 }
 
 updateTotalPrice();
-function zero(){pq = [0, 0, 0];
+function zero(){showList();
   document.getElementById("total1").textContent = `€0.00`;
   document.getElementById("total").textContent = `€0.00`;
 }
