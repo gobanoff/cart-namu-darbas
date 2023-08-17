@@ -65,7 +65,7 @@ function showList() {
 showList();
 
 function delItem(e) { 
- if( e.target.parentElement.parentElement.remove())totalPrice = totalPrice - home.p[i].price * pq[i];
+  e.target.parentElement.parentElement.remove();
 }
 
 
@@ -89,7 +89,7 @@ item2.innerHTML += `<div class="forms"><h2>Summary</h2><hr>
 <input class="code2"type="text" placeholder="Enter your code                                              &rarr;" onchange="updateTotalPrice()" >
 <div class="line"></div>
 <div class="sp"><p class"ice">TOTALPRICE</p><p id="total1">€${totalPrice}.00</p></div>
-<button id="cout">CHECKOUT</button> </div>`;
+<button id="cout"onclick="saveData()">CHECKOUT</button> </div>`;
 const cd = document.querySelector(".code2");
 
 function itemQuantityP(index) {
@@ -139,8 +139,27 @@ function updateTotalPrice() {
   }
 }
 
+
 updateTotalPrice();
 function zero(){showList();
   document.getElementById("total1").textContent = `€0 .00`;
   document.getElementById("total").textContent = `€0 .00`;
+}
+
+function saveData() {
+  const cartData = {
+    items: home.p.map((item, index,) => ({
+      id: item.id,
+      quantity: pq[index],
+      price:item.price,
+      caregory:item.category,
+      brand:item.brand,
+      
+    })),
+    
+
+    totalPrice:totalPrice ,
+  };
+
+  localStorage.setItem('cartData', JSON.stringify(cartData));
 }
