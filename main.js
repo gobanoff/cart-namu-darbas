@@ -36,11 +36,11 @@ const goods = document.querySelector(".prek");
 item1.innerHTML += `<div class="pr"><p>Shopping Cart</p><span>3 items</span></div>
 <div class="prek"></div><a href="#"id="back"onclick="zero()"><img src="arrow.png" alt=""> Back to shop</a>`;
 let pq = [0, 0, 0];
-let totalPrice =0;
+let totalPrice = 0;
 function showList() {
   let html = "";
   pq = [0, 0, 0];
-  
+
   for (let i = 0; i < 3; i++) {
     const title = home.p[i].title;
     const cat = home.p[i].category;
@@ -64,10 +64,9 @@ function showList() {
 }
 showList();
 
-function delItem(e) { 
+function delItem(e) {
   e.target.parentElement.parentElement.remove();
 }
-
 
 const d = [" ", 5, 8, 0];
 
@@ -101,7 +100,8 @@ function itemQuantityP(index) {
 
   if (pq[index] > 0) {
     prev.removeAttribute("disabled");
-  }totalPrice += home.p[index].price;
+  }
+  totalPrice += home.p[index].price;
   updateTotalPrice();
 }
 
@@ -116,7 +116,8 @@ function itemQuantityM(index) {
 
   if (pq[index] === 0) {
     prev.setAttribute("disabled", true);
-  }totalPrice -= home.p[index].price;
+  }
+  totalPrice -= home.p[index].price;
   updateTotalPrice();
 }
 
@@ -139,27 +140,25 @@ function updateTotalPrice() {
   }
 }
 
-
 updateTotalPrice();
-function zero(){showList();
+function zero() {
+  showList();
   document.getElementById("total1").textContent = `€0 .00`;
   document.getElementById("total").textContent = `€0 .00`;
 }
 
 function saveData() {
   const cartData = {
-    items: home.p.map((item, index,) => ({
+    items: home.p.map((item, index) => ({
       id: item.id,
       quantity: pq[index],
-      price:item.price,
-      caregory:item.category,
-      brand:item.brand,
-      
+      price: item.price,
+      caregory: item.category,
+      brand: item.brand,
     })),
-    
 
-    totalPrice:totalPrice ,
+    totalPrice: totalPrice,
   };
 
-  localStorage.setItem('cartData', JSON.stringify(cartData));
+  localStorage.setItem("cartData", JSON.stringify(cartData));
 }
